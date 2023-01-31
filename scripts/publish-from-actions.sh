@@ -43,7 +43,8 @@ echo "#############################################"
 echo "######### Setting env vars" 
 echo "#############################################" 
 
-REMOTE_REPO="https://${GITHUB_PERSONAL_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+GITHUB_REPOSITORY=$(git config --get remote.origin.url | sed 's/.*github.com[:\/]\(.*\)\.git/\1/')
+REMOTE_REPO="https://github.com/sabino-software/one-click-apps.git"
 REPONAME="$(echo $GITHUB_REPOSITORY| cut -d'/' -f 2)"
 
 OWNER="$(echo $GITHUB_REPOSITORY| cut -d'/' -f 1)" 
